@@ -308,7 +308,7 @@ class GSMLink(Link):
             time.sleep(1)
         return False
 
-    def _hangup(self):      
+    def _hangup(self):
         #EGC my modem (Citerion (formerly SIEMENS) gprs mc35i) send two additional weird characters before the OK response, something that looks like ᤙᤙOK and it makes the function never ends
         #So I have had to delete the response checking and also the is_open checking because sometimes the modem wasn't able to hang up despite aparently the conexion was closed is_open=false 
         self.link.write("+++")
