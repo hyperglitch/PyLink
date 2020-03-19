@@ -87,9 +87,9 @@ class TCPLink(Link):
         '''Open the socket.'''
         if self._socket is None:
             self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self._socket.setblocking(0)
             self._socket.settimeout(self.timeout)
             self._socket.connect(self.address)
-            self.socket.setblocking(0)
             LOGGER.info('new %s was initialized' % self)
 
     def settimeout(self, timeout):
